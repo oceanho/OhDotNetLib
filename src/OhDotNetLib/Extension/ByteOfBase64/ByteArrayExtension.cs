@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OhDotNetLib.Extension
 {
-    public static class ByteArrayExtension
+    public static partial class ByteArrayExtension
     {
         public static string ToBase64Str(this IEnumerable<byte> source)
         {

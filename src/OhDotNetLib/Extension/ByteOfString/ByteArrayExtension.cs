@@ -7,7 +7,7 @@ using OhDotNetLib;
 
 namespace OhDotNetLib.Extension
 {
-    public static class ByteArrayExtension
+    public static partial class ByteArrayExtension
     {
         public static string GetStr(this IEnumerable<byte> source)
         {
@@ -24,8 +24,9 @@ namespace OhDotNetLib.Extension
             return source.GetBytes(Consts.DefaultEncoding);
         }
 
-        public static byte[] GetBytes(this string source, Encoding coding)
+        public static byte[] GetBytes(this string source, Encoding encoding)
         {
+            return encoding.GetBytes(source);
         }
     }
 }

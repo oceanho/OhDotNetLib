@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace OhDotNetLib.Extension
 {
@@ -8,6 +9,7 @@ namespace OhDotNetLib.Extension
     {
         public static string ToBase64Str(this string source)
         {
+            return source.ToBase64Str(Encoding.UTF8);
         }
 
         public static string ToBase64Str(this string source, Encoding encoding)
@@ -17,11 +19,12 @@ namespace OhDotNetLib.Extension
 
         public static string FromBase64Str(this string source)
         {
+            return source.FromBase64Str(Encoding.UTF8);
         }
 
         public static string FromBase64Str(this string source, Encoding encoding)
         {
-            // return Convert.FromBase64String((source.GetBytes(encoding).GetStr(encoding))).ToStr();
+            return Convert.FromBase64String((source.GetBytes(encoding).GetStr(encoding))).GetStr();
         }
     }
 }
