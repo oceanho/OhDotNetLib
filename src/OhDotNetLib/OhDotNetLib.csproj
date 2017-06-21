@@ -14,10 +14,8 @@
   
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Serialization\" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
   </ItemGroup>
 
 </Project>
