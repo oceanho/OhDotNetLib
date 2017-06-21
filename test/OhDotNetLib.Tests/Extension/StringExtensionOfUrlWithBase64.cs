@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OhDotNetLib.Extension
+namespace OhDotNetLib.Tests.Extension
 {
-    public static class StringExtension
+    class StringExtensionOfUrlWithBase64
     {
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OhDotNetLib.Extension.StringOfConversion
+namespace OhDotNetLib.Extension
 {
     public static class StringExtension
     {
