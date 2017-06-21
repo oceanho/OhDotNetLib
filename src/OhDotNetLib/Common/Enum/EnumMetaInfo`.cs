@@ -19,19 +19,18 @@ namespace OhDotNetLib
         public EnumMetaInfo(Type enumTyper)
             : base(enumTyper)
         {
-            RealFields = new EnumFieldInfo<TValue>[Fields.Length];
-            for (int i = 0; i < RealFields.Length; i++)
+            Fields = new EnumFieldInfo<TValue>[base.Fields.Length];
+            for (int i = 0; i < Fields.Length; i++)
             {
-                RealFields[i] = new EnumFieldInfo<TValue>()
+                Fields[i] = new EnumFieldInfo<TValue>()
                 {
-                    Name = Fields[i].Name,
-                    Value = Fields[i].Value,
-                    Attributes = Fields[i].Attributes,
-                    RealValue = (TValue)Fields[i].Value
+                    Name = base.Fields[i].Name,
+                    Value = (TValue)base.Fields[i].Value,
+                    Attributes = base.Fields[i].Attributes
                 };
             }
         }
 
-        public EnumFieldInfo<TValue>[] RealFields { get; }
+        public new EnumFieldInfo<TValue>[] Fields { get; }
     }
 }

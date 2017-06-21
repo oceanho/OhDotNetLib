@@ -13,6 +13,6 @@ namespace OhDotNetLib
         /// <summary>
         /// 枚举值
         /// </summary>
-        public TValue RealValue { get; set; }
+        public new TValue Value { get; set; }
     }
 }
