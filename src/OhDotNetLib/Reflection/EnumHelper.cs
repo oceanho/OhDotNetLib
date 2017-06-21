@@ -19,10 +19,18 @@ namespace OhDotNetLib.Reflection
         /// <param name="type"></param>
         internal static void CheckType(Type type)
         {
-            if (type.GetTypeInfo().BaseType != typeof(Enum))
+            if (!(IsEnumType(type)))
             {
                 throw new ArgumentException($"{type} is not a enum type");
             }
+        }
+        #endregion
+
+        #region IsEnumType
+
+        public static bool IsEnumType(Type type)
+        {
+            return (type.GetTypeInfo().BaseType == typeof(Enum));
         }
         #endregion
 
@@ -131,6 +139,6 @@ namespace OhDotNetLib.Reflection
             CheckType(type);
             return ReflectionHelper.GetAttributes(type, inherit);
         }
-        #endregion
+        #endregion        
     }
 }
