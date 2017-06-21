@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
+    <Version>1.1.0</Version>
+    <Description>OceanHo DotNet Common Library</Description>
+    <PackageProjectUrl>https://github.com/oceanho/OhDotNetLib.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/oceanho/OhDotNetLib.git</RepositoryUrl>
+    <PackageTags>dotnet lib,dotnet common lib,dotnet utils</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -10,6 +16,11 @@
 
   <PropertyGroup Condition="'$(TargetFramework)'=='net46'">
     <DefineConstants>NET46</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.6|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard1.6\OhDotNetLib.xml</DocumentationFile>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   
   <ItemGroup>
