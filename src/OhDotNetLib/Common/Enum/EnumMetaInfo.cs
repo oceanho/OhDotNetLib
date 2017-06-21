@@ -19,6 +19,8 @@ namespace OhDotNetLib
         /// <param name="enumTyper">枚举类型</param>
         public EnumMetaInfo(Type enumTyper)
         {
+            EnumHelper.CheckType(enumTyper);
+
             EnumTyper = enumTyper;
             Fields = EnumHelper.GetFieldInfo(enumTyper, true);
             Attributes = EnumHelper.GetAttributes(enumTyper, true);
