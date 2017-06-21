@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OhDotNetLib.Utils;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -50,6 +51,17 @@ namespace OhDotNetLib.Extension
         public static Decimal ToDecimal(this object source)
         {
             return Convert.ToDecimal(source);
+        }
+
+        public static DateTime ToDateTime(this object source)
+        {
+            return Convert.ToDateTime(source);
+        }
+
+        public static Guid ToGuid(this object source)
+        {
+            ObjectChecker.CheckNotNull(source);
+            return Guid.Parse(source.ToString());
         }
 
         public static TEnumTyper ToEnum<TEnumTyper>(this object source)
