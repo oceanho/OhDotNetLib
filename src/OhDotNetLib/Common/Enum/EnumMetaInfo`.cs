@@ -8,14 +8,14 @@ using System.Text;
 namespace OhDotNetLib
 {
     /// <summary>
-    /// 表示枚举元数据类型的
+    /// 表示枚举元数据信息载体类
     /// </summary>
     public class EnumMetaInfo<TValue> : EnumMetaInfo
     {
         /// <summary>
-        /// 
+        /// 实例化 <see cref="EnumFieldInfo{TValue}"/>
         /// </summary>
-        /// <param name="enumTyper"></param>
+        /// <param name="enumTyper">枚举类型</param>
         public EnumMetaInfo(Type enumTyper)
             : base(enumTyper)
         {
@@ -31,6 +31,9 @@ namespace OhDotNetLib
             }
         }
 
+        /// <summary>
+        /// 获取一个值，该值表示指定的枚举类型所定义的所有字段数组
+        /// </summary>
         public new EnumFieldInfo<TValue>[] Fields { get; }
     }
 }

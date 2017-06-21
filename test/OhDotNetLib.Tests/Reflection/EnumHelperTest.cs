@@ -23,8 +23,7 @@ namespace OhDotNetLib.Tests.Reflection
             var enumInfo2 = new EnumMetaInfo<int>(typeof(MyEnum));
             enumInfo2.HasFlag.ShouldBe(true);
 
-            enumInfo2.Fields.Count().ShouldBe(4);
-            enumInfo2.Fields.Count().ShouldBe(4);
+            enumInfo2.Fields.Count().ShouldBe(4);           
 
             enumInfo2.Attributes.Count().ShouldBe(2);
             enumInfo2.Fields.FirstOrDefault().Value.ShouldBe(2);

@@ -9,20 +9,26 @@ using System.Text;
 namespace OhDotNetLib
 {
     /// <summary>
-    /// 表示枚举元数据类型的
+    /// 表示枚举元数据信息载体类
     /// </summary>
     public class EnumMetaInfo
     {
         /// <summary>
-        /// 
+        /// 实例化 <see cref="EnumFieldInfo"/>
         /// </summary>
-        /// <param name="enumTyper"></param>
+        /// <param name="enumTyper">枚举类型</param>
         public EnumMetaInfo(Type enumTyper)
         {
+            EnumTyper = enumTyper;
             Fields = EnumHelper.GetFieldInfo(enumTyper, true);
             Attributes = EnumHelper.GetAttributes(enumTyper, true);
             HasFlag = Attributes.FirstOrDefault(p => p.GetType() == typeof(FlagsAttribute)) != null;
         }
+
+        /// <summary>
+        /// 获取一个值，该值表示枚举的类型
+        /// </summary>
+        Type EnumTyper { get; }
 
         /// <summary>
         /// 获取一个值，该值表示枚举是否有 <see cref="FlagsAttribute"/>

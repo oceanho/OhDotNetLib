@@ -25,7 +25,7 @@ namespace OhDotNetLib.Reflection
             }
         }
         #endregion
-        
+
         #region GetFieldInfo
 
         /// <summary>
@@ -63,7 +63,49 @@ namespace OhDotNetLib.Reflection
             return list.ToArray();
         }
         #endregion
-        
+
+        #region GetFieldInfo<TValue>
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static EnumFieldInfo<TValue>[] GetFieldInfo<TValue>(Type type)
+        {
+            CheckType(type);
+            return GetMetaInfo<TValue>(type).Fields;
+        }
+        #endregion
+
+        #region GetMetaInfo
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static EnumMetaInfo GetMetaInfo(Type type)
+        {
+            CheckType(type);
+            return new EnumMetaInfo(type);
+        }
+        #endregion
+
+        #region GetMetaInfo<TValue>
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static EnumMetaInfo<TValue> GetMetaInfo<TValue>(Type type)
+        {
+            CheckType(type);
+            return new EnumMetaInfo<TValue>(type);
+        }
+        #endregion
+
         #region GetAttributes
 
         /// <summary>
