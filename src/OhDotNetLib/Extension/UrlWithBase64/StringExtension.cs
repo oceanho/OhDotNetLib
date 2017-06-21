@@ -8,7 +8,7 @@ namespace OhDotNetLib.Extension
     public static partial class StringExtension
     {
         /// <summary>
-        /// 按照 + --> - 、 / --> _ . 去掉= 的替换模式，还原被替换的base64字符串
+        /// 按照 + --> - 、 / --> _ . 去掉= 的替换模式，替换其中的特殊字符base64字符串
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
@@ -16,9 +16,11 @@ namespace OhDotNetLib.Extension
         {
             if (!(ObjectNullChecker.IsNull(source)))
             {
-                source = source.Replace('+', '-');
-                source = source.Replace('/', '_');
-                source = source.Remove(source.IndexOf("="));
+                var builder = new StringBuilder(source);
+                builder.Replace("=", "");
+                builder.Replace("+", "-");
+                builder.Replace("/", "_");
+                source = builder.ToString();
             }
             return source;
         }
@@ -32,8 +34,10 @@ namespace OhDotNetLib.Extension
         {
             if (!(ObjectNullChecker.IsNull(source)))
             {
-                source = source.Replace('-', '+');
-                source = source.Replace('_', '/');
+                var builder = new StringBuilder(source);
+                builder.Replace('-', '+');
+                builder.Replace('_', '/');
+                source = builder.ToString();
             }
             return source;
         }
