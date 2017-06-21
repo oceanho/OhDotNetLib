@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace OhDotNetLib.Extension.StringOfBase64
+namespace OhDotNetLib.Extension.StringOfUrlSpecialCharacterWithBase64
 {
     public static class StringExtension
     {
         /// <summary>
-        /// 
+        /// 按照 + --> -. / --> * . = --> _ 的替换模式，还原被替换的base64字符串
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static string ToReplacedBase64String(this string source)
+        public static string ToReplacedUrlSpecialCharacter(this string source)
         {
             if (!(ObjectNullChecker.IsNull(source)))
             {
@@ -24,11 +24,11 @@ namespace OhDotNetLib.Extension.StringOfBase64
         }
 
         /// <summary>
-        /// 
+        /// 按照 - --> + . * --> / . _ --> = 的替换模式，还原被替换的base64字符串
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static string FromReplacedBase64String(this string source)
+        public static string FromReplacedUrlSpecialCharacter(this string source)
         {
             if (!(ObjectNullChecker.IsNull(source)))
             {
