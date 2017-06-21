@@ -24,7 +24,7 @@ namespace OhDotNetLib.Extension
 
         public static string FromBase64Str(this string source, Encoding encoding)
         {
-            return Convert.FromBase64String((source.GetBytes(encoding).GetStr(encoding))).GetStr();
+            return Convert.FromBase64String((source.GetBytes(encoding).GetString(encoding))).GetString();
         }
     }
 }
