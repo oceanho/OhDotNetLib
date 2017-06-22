@@ -9,12 +9,12 @@ namespace OhDotNetLib.Extension
 {
     public static partial class ByteArrayExtension
     {
-        public static string GetStr(this IEnumerable<byte> source)
+        public static string GetString(this IEnumerable<byte> source)
         {
-            return source.GetStr(Consts.DefaultEncoding);
+            return source.GetString(Consts.DefaultEncoding);
         }
 
-        public static string GetStr(this IEnumerable<byte> source, Encoding encoding)
+        public static string GetString(this IEnumerable<byte> source, Encoding encoding)
         {
             return encoding.GetString(source.ToArray());
         }

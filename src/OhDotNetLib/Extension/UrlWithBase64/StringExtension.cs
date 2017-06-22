@@ -8,7 +8,7 @@ namespace OhDotNetLib.Extension
     public static partial class StringExtension
     {
         /// <summary>
-        /// 按照 + --> - 、 / --> _ . 去掉= 的替换模式，替换其中的特殊字符base64字符串
+        /// 按照 + --> - 、 / --> _ . 去掉= 的模式，替换其中的特殊字符base64字符串
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
@@ -26,7 +26,7 @@ namespace OhDotNetLib.Extension
         }
 
         /// <summary>
-        /// 按照 - --> + 、 _ --> / 、 补足= 的替换模式，还原被替换的base64字符串
+        /// 按照 - --> + 、 _ --> / 、 补足= 的模式，还原被替换的base64字符串
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>

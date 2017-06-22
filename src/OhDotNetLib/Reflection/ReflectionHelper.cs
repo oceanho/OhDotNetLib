@@ -11,6 +11,32 @@ namespace OhDotNetLib.Reflection
     /// </summary>
     public static class ReflectionHelper
     {
+        #region IsPrimitiveType
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsPrimitiveType(object type)
+        {
+            return IsPrimitiveType(type.GetType());
+        }
+        #endregion
+
+        #region IsPrimitiveType
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool IsPrimitiveType(Type type)
+        {
+            return type.GetTypeInfo().IsPrimitive || type == typeof(String);
+        }
+        #endregion
+
         #region GetProperties
         /// <summary>
         /// 
@@ -98,6 +124,6 @@ namespace OhDotNetLib.Reflection
         {
             return type.GetTypeInfo().GetCustomAttributes(typeof(TAttribute), inherit: inherit).OfType<TAttribute>().ToArray();
         }
-        #endregion
+        #endregion        
     }
 }

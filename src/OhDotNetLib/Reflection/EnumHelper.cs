@@ -19,13 +19,21 @@ namespace OhDotNetLib.Reflection
         /// <param name="type"></param>
         internal static void CheckType(Type type)
         {
-            if (type.GetTypeInfo().BaseType != typeof(Enum))
+            if (!(IsEnumType(type)))
             {
                 throw new ArgumentException($"{type} is not a enum type");
             }
         }
         #endregion
-        
+
+        #region IsEnumType
+
+        public static bool IsEnumType(Type type)
+        {
+            return (type.GetTypeInfo().BaseType == typeof(Enum));
+        }
+        #endregion
+
         #region GetFieldInfo
 
         /// <summary>
@@ -63,7 +71,49 @@ namespace OhDotNetLib.Reflection
             return list.ToArray();
         }
         #endregion
-        
+
+        #region GetFieldInfo<TValue>
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static EnumFieldInfo<TValue>[] GetFieldInfo<TValue>(Type type)
+        {
+            CheckType(type);
+            return GetMetaInfo<TValue>(type).Fields;
+        }
+        #endregion
+
+        #region GetMetaInfo
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static EnumMetaInfo GetMetaInfo(Type type)
+        {
+            CheckType(type);
+            return new EnumMetaInfo(type);
+        }
+        #endregion
+
+        #region GetMetaInfo<TValue>
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static EnumMetaInfo<TValue> GetMetaInfo<TValue>(Type type)
+        {
+            CheckType(type);
+            return new EnumMetaInfo<TValue>(type);
+        }
+        #endregion
+
         #region GetAttributes
 
         /// <summary>
@@ -89,6 +139,6 @@ namespace OhDotNetLib.Reflection
             CheckType(type);
             return ReflectionHelper.GetAttributes(type, inherit);
         }
-        #endregion
+        #endregion        
     }
 }
