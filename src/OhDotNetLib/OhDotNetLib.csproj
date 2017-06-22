@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
-    <Version>2.0.1</Version>
+    <Version>2.0.1$(VersionSuffix)</Version>
     <Description>OceanHo's dotnet common library</Description>
     <PackageProjectUrl>https://github.com/oceanho/OhDotNetLib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/oceanho/OhDotNetLib.git</RepositoryUrl>
