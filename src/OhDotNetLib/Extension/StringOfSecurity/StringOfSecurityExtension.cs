@@ -6,5 +6,6 @@ namespace OhDotNetLib.Extension
 {
     public static partial class StringOfSecurityExtension
     {
+
     }
 }
