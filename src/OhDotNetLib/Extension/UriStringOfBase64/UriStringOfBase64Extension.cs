@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OhDotNetLib.Extension
 {
-    public static partial class StringExtension
+    public static partial class UriStringOfBase64Extension
     {
         /// <summary>
         /// 按照 + --> - 、 / --> _ . 去掉= 的模式，替换其中的特殊字符base64字符串

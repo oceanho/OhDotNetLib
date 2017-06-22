@@ -6,7 +6,7 @@ using System.Text;
 
 namespace OhDotNetLib.Extension
 {
-    public static partial class ObjectExtension
+    public static partial class ObjectOfPrimitiveConversionExtension
     {
         public static Int16 ToInt16(this object source)
         {
