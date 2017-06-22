@@ -17,7 +17,7 @@ namespace OhDotNetLib.Extension
             if (!(ObjectNullChecker.IsNullOrEmpty(source)))
             {
                 var builder = new StringBuilder(source);
-                builder.Replace("=", "");
+                builder.Replace("=", "$");
                 builder.Replace("+", "-");
                 builder.Replace("/", "_");
                 source = builder.ToString();
@@ -35,6 +35,7 @@ namespace OhDotNetLib.Extension
             if (!(ObjectNullChecker.IsNullOrEmpty(source)))
             {
                 var builder = new StringBuilder(source);
+                builder.Replace('$', '=');
                 builder.Replace('-', '+');
                 builder.Replace('_', '/');
                 source = builder.ToString();
