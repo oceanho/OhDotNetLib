@@ -4,7 +4,8 @@ using System.Text;
 
 namespace OhDotNetLib.Extension
 {
-    public static partial class StringExtension
+    public static partial class StringOfSecurityExtension
     {
+
     }
 }

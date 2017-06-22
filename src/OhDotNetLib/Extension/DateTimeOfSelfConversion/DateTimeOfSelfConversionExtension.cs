@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace OhDotNetLib.Extension
 {    
-    public static partial class DateTimeExtension
+    public static partial class DateTimeOfSelfConversionExtension
     {
         /// <summary>
         /// 获取当前指定时间的当天的最小时间（返回日期 <paramref name="source"/> 当天 00:00:00 时刻的时间）

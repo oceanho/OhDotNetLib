@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OhDotNetLib.Extension
 {
-    public static partial class StringExtension
+    public static partial class UriStringOfBase64Extension
     {
         /// <summary>
         /// 按照 + --> - 、 / --> _ . 去掉= 的模式，替换其中的特殊字符base64字符串
@@ -14,10 +14,10 @@ namespace OhDotNetLib.Extension
         /// <returns></returns>
         public static string ToReplacedUrlSpecialCharacter(this string source)
         {
-            if (!(ObjectNullChecker.IsNull(source)))
+            if (!(ObjectNullChecker.IsNullOrEmpty(source)))
             {
                 var builder = new StringBuilder(source);
-                builder.Replace("=", "");
+                builder.Replace("=", "$");
                 builder.Replace("+", "-");
                 builder.Replace("/", "_");
                 source = builder.ToString();
@@ -32,9 +32,10 @@ namespace OhDotNetLib.Extension
         /// <returns></returns>
         public static string FromReplacedUrlSpecialCharacter(this string source)
         {
-            if (!(ObjectNullChecker.IsNull(source)))
+            if (!(ObjectNullChecker.IsNullOrEmpty(source)))
             {
                 var builder = new StringBuilder(source);
+                builder.Replace('$', '=');
                 builder.Replace('-', '+');
                 builder.Replace('_', '/');
                 source = builder.ToString();

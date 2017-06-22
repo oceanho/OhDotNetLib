@@ -8,7 +8,7 @@ namespace OhDotNetLib.Utils
     {
         public static void CheckNotNull(object source)
         {
-            if (ObjectNullChecker.IsNull(source))
+            if (ObjectNullChecker.IsNullOrEmpty(source))
             {
                 throw new ArgumentNullException($"{nameof(source)}");
             }

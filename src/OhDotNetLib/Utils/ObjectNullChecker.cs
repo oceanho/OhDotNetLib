@@ -6,11 +6,11 @@ namespace OhDotNetLib.Utils
 {
     internal static class ObjectNullChecker
     {
-        public static bool IsNull(object obj1)
+        public static bool IsNullOrEmpty(object source)
         {
-            if (obj1 == null)
+            if (source == null)
                 return true;
-            return (obj1 is string) && String.IsNullOrEmpty((obj1 as string));
+            return (source is string) && String.IsNullOrEmpty((source as string));
         }
     }
 }

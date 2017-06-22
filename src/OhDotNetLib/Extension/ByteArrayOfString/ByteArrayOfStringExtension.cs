@@ -7,7 +7,7 @@ using OhDotNetLib;
 
 namespace OhDotNetLib.Extension
 {
-    public static partial class ByteArrayExtension
+    public static partial class ByteArrayOfStringExtension
     {
         public static string GetString(this IEnumerable<byte> source)
         {
