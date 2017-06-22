@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OhDotNetLib", "src\OhDotNet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OhDotNetLib.Tests", "test\OhDotNetLib.Tests\OhDotNetLib.Tests.csproj", "{A324A6EC-2087-47D8-B1E0-B0BC2FEE9E5D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tool", "tool", "{500F02E3-8851-4F99-A4A6-875E6B189349}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{59E103AE-5EBA-48EE-BD73-0E9973E7A223}"
+	ProjectSection(SolutionItems) = preProject
+		tool\scripts\NugetPackTask.ps1 = tool\scripts\NugetPackTask.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,5 +39,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B6FAD0F6-4813-4E2A-A441-9E7CA53DAE8A} = {6381A5E3-0DE8-4D98-8E2F-D77BB2215FF5}
 		{A324A6EC-2087-47D8-B1E0-B0BC2FEE9E5D} = {D0094DAD-13A0-4425-8C5D-E880FA2A041A}
+		{59E103AE-5EBA-48EE-BD73-0E9973E7A223} = {500F02E3-8851-4F99-A4A6-875E6B189349}
 	EndGlobalSection
 EndGlobal
