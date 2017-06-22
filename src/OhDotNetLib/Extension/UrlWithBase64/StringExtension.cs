@@ -14,7 +14,7 @@ namespace OhDotNetLib.Extension
         /// <returns></returns>
         public static string ToReplacedUrlSpecialCharacter(this string source)
         {
-            if (!(ObjectNullChecker.IsNull(source)))
+            if (!(ObjectNullChecker.IsNullOrEmpty(source)))
             {
                 var builder = new StringBuilder(source);
                 builder.Replace("=", "");
@@ -32,7 +32,7 @@ namespace OhDotNetLib.Extension
         /// <returns></returns>
         public static string FromReplacedUrlSpecialCharacter(this string source)
         {
-            if (!(ObjectNullChecker.IsNull(source)))
+            if (!(ObjectNullChecker.IsNullOrEmpty(source)))
             {
                 var builder = new StringBuilder(source);
                 builder.Replace('-', '+');
