@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 using System.Linq;
+using OhDotNetLib.Reflection.Caching;
+using OhDotNetLib.Extension;
 
 namespace OhDotNetLib.Reflection
 {
@@ -11,42 +13,69 @@ namespace OhDotNetLib.Reflection
     /// </summary>
     public static class ReflectionHelper
     {
-        #region IsPrimitiveType
+        #region IsPrimitive
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsPrimitiveType(object type)
+        public static bool IsPrimitive(object type)
         {
-            return IsPrimitiveType(type.GetType());
+            return IsPrimitive(type.GetType());
         }
         #endregion
 
-        #region IsPrimitiveType
+        #region IsPrimitive
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsPrimitiveType(Type type)
+        public static bool IsPrimitive(Type type)
         {
             return type.GetTypeInfo().IsPrimitive || type == typeof(String);
         }
         #endregion
 
         #region GetProperties
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="source"></param>
         /// <param name="canAssignType"></param>
         /// <returns></returns>
-        public static IEnumerable<PropertyInfo> GetProperties(object source, Type canAssignType)
+        public static IEnumerable<PropertyInfo> GetProperties(object source)
         {
-            return source.GetType().GetTypeInfo().GetProperties().Where(prop => canAssignType.GetTypeInfo().IsAssignableFrom(prop.PropertyType.GetTypeInfo()));
+            return GetProperties(source, null);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public static IEnumerable<PropertyInfo> GetProperties(object source, Func<PropertyInfo, bool> predicate)
+        {
+            var properties = PropertyInfoCache.Get(source.GetType(), (type) =>
+            {
+                return source.GetType().GetTypeInfo().GetProperties();
+            });
+            return properties.WhereIf(predicate != null, predicate);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="propCanAssignType"></param>
+        /// <returns></returns>
+        public static IEnumerable<PropertyInfo> GetCanAssignabledTypeProperties(object source, Type propCanAssignType)
+        {
+            return GetProperties(source, prop => propCanAssignType.GetTypeInfo().IsAssignableFrom(prop.PropertyType.GetTypeInfo()));
         }
         #endregion
 

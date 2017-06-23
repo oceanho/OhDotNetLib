@@ -76,7 +76,7 @@ namespace OhDotNetLib.Extension
             {
                 return source.ToEnum<TPrimitive>();
             }
-            if (Reflection.ReflectionHelper.IsPrimitiveType(typeof(TPrimitive)))
+            if (Reflection.ReflectionHelper.IsPrimitive(typeof(TPrimitive)))
             {
                 return (TPrimitive)Convert.ChangeType(source, typeof(TPrimitive));
             }
