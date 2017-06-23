@@ -8,7 +8,8 @@ $cmdList = "Command List:`n
 4. CreateReleasePack
 5. ClearNugetPack
 6. PublishNugetPack
-7. Exited
+7. ReImport PowerShell Module
+8. Exited
 "
 Write-Host "
 =====================================================
@@ -42,7 +43,11 @@ While ($true) {
 		Continue
 	}
 	ElseIf ($cmd -eq "7"){
-		Break		
+		Import-Module .\NugetPackTask.ps1 -Force
+		Continue
+	}
+	ElseIf ($cmd -eq "8"){
+		Break
 	}
 	If ([System.String]::IsNullOrEmpty($cmd) -eq $false) {
 		Invoke-Expression $cmd
