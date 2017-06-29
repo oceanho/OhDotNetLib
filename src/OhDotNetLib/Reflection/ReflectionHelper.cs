@@ -60,11 +60,7 @@ namespace OhDotNetLib.Reflection
         /// <returns></returns>
         public static IEnumerable<PropertyInfo> GetProperties(object source, Func<PropertyInfo, bool> predicate)
         {
-            var properties = PropertyInfoCache.Get(source.GetType(), (type) =>
-            {
-                return source.GetType().GetTypeInfo().GetProperties();
-            });
-            return properties.WhereIf(predicate != null, predicate);
+            return GetPropertiesFromType(source.GetType(), predicate);
         }
 
         /// <summary>
@@ -76,6 +72,46 @@ namespace OhDotNetLib.Reflection
         public static IEnumerable<PropertyInfo> GetCanAssignabledTypeProperties(object source, Type propCanAssignType)
         {
             return GetProperties(source, prop => propCanAssignType.GetTypeInfo().IsAssignableFrom(prop.PropertyType.GetTypeInfo()));
+        }
+        #endregion
+
+        #region GetPropertiesFromType
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="canAssignType"></param>
+        /// <returns></returns>
+        public static IEnumerable<PropertyInfo> GetPropertiesFromType(Type type)
+        {
+            return GetPropertiesFromType(type, null);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public static IEnumerable<PropertyInfo> GetPropertiesFromType(Type type, Func<PropertyInfo, bool> predicate)
+        {
+            var properties = PropertyInfoCache.Get(type, (_type) =>
+            {
+                return type.GetTypeInfo().GetProperties();
+            });
+            return properties.WhereIf(predicate != null, predicate);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="propCanAssignType"></param>
+        /// <returns></returns>
+        public static IEnumerable<PropertyInfo> GetCanAssignabledTypePropertiesFromType(Type type, Type propCanAssignType)
+        {
+            return GetPropertiesFromType(type, prop => propCanAssignType.GetTypeInfo().IsAssignableFrom(prop.PropertyType.GetTypeInfo()));
         }
         #endregion
 

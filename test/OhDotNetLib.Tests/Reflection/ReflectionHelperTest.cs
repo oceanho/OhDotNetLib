@@ -80,6 +80,16 @@ namespace OhDotNetLib.Tests.Reflection
         }
         #endregion
 
+        #region Verify_GetPropertiesFromTypeShouldBeWork
+
+        [Fact]
+        public void Verify_GetPropertiesFromTypeShouldBeWork()
+        {
+            var properties = ReflectionHelper.GetPropertiesFromType(typeof(MyTestClass));
+            properties.Count().ShouldBe(4);
+        }
+        #endregion
+
         #region Verify_GetCanAssignabledTypePropertiesShouldBeWork
 
         [Fact]
