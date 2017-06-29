@@ -14,7 +14,7 @@ namespace OhDotNetLib.Reflection
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsGenirecType(Type type)
+        public static bool IsGenericType(Type type)
         {
             return type.GetTypeInfo().IsGenericType;
         }
