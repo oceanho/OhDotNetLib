@@ -104,6 +104,34 @@ namespace OhDotNetLib.Reflection
         }
         #endregion
 
+        #region CreateInstance
+
+        public static object CreateInstance(Type type)
+        {
+            return CreateInstance(type, null);
+        }
+
+        public static object CreateInstance(Type type, Func<object[]> paraFunc)
+        {
+            var _type = type;
+            if (TypeHelper.IsGenericTypeDefinition(type))
+            {
+                _type = _type.MakeGenericType(_type.GetTypeInfo().GetGenericArguments());
+            }
+            return Activator.CreateInstance(_type, paraFunc?.Invoke());
+        }
+
+        public static TType CreateInstance<TType>()
+        {
+            return CreateInstance<TType>(null);
+        }
+
+        public static TType CreateInstance<TType>(Func<object[]> paraFunc)
+        {
+            return (TType)CreateInstance(typeof(TType), paraFunc);
+        }
+        #endregion
+
         #region GetTypeUniqueName
 
         /// <summary>
@@ -153,6 +181,6 @@ namespace OhDotNetLib.Reflection
         {
             return type.GetTypeInfo().GetCustomAttributes(typeof(TAttribute), inherit: inherit).OfType<TAttribute>().ToArray();
         }
-        #endregion        
+        #endregion
     }
 }

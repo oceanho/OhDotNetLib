@@ -92,6 +92,34 @@ namespace OhDotNetLib.Tests.Reflection
             properties.FirstOrDefault().PropertyType.ShouldBe(typeof(MyTestProperty));
         }
         #endregion
+
+        #region Verify_CreateInstanceShouldBeWork
+
+        [Fact]
+        public void Verify_CreateInstanceShouldBeWork()
+        {
+            ReflectionHelper.CreateInstance<Int32>();
+            ReflectionHelper.CreateInstance<Int64>();
+            ReflectionHelper.CreateInstance(typeof(String),()=> {
+                return new object[] { new char[] { 'a', 'b', 'c' } };
+            });
+            ReflectionHelper.CreateInstance(typeof(MyTestClass));
+            ReflectionHelper.CreateInstance<MyTestProperty>(()=> {
+                return new object[] {
+                    "prop1",
+                    123
+                };
+            }).Prop1.ShouldBe("prop1");
+            
+
+            ReflectionHelper.CreateInstance<int?>().ShouldBeNull();
+
+            ReflectionHelper.CreateInstance<int?>(() =>
+            {
+                return new object[] { 123 };
+            }).ShouldBe(123);
+        }
+        #endregion
     }
 
     #region internal object(Gender/MyTestClass)
@@ -108,6 +136,19 @@ namespace OhDotNetLib.Tests.Reflection
     }
     class MyTestProperty : IMyTestProperty
     {
+        public MyTestProperty()
+        {
+
+        }
+
+        public MyTestProperty(string prop1,int prop2)
+        {
+            Prop1 = prop1;
+            Prop2 = prop2;
+        }
+
+        public string Prop1 { get; set; }
+        public int Prop2 { get; set; }
     }
     internal class MyTestClass
     {

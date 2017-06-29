@@ -9,7 +9,8 @@ $cmdList = "Command List:`n
 5. ClearNugetPack
 6. PublishNugetPack
 7. ReImport PowerShell Module
-8. Exited
+8. Set nuget's Api Key
+9. Exited
 "
 Write-Host "
 =====================================================
@@ -46,7 +47,11 @@ While ($true) {
 		Import-Module .\NugetPackTask.ps1 -Force
 		Continue
 	}
-	ElseIf ($cmd -eq "8"){
+    ElseIf ($cmd -eq "8"){
+        SetNugetApiKey
+		Continue
+	}
+	ElseIf ($cmd -eq "9"){
 		Break
 	}
 	If ([System.String]::IsNullOrEmpty($cmd) -eq $false) {

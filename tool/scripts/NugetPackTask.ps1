@@ -50,3 +50,14 @@ Function PublishNugetPack {
 		Invoke-Expression "dotnet nuget push $_ -s $NugetSvr -k $NugetKey"
 	}
 }
+
+
+Function SetNugetApiKey {
+	$api_key = Read-Host "Input Your nuget Api Key(Empty Exited)"
+    If([System.String]::IsNullOrEmpty($api_key) -ne $true){
+        $NugetKey = $api_key
+        [System.Environment]::SetEnvironmentVariable("NUGETAPIKEY",$api_key,[System.EnvironmentVariableTarget]::Machine)
+        Return
+    }
+    Write-Warning -Message "The api key is null . nothing to do. "
+}
