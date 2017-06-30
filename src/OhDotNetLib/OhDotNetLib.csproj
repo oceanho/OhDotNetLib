@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <NugetPackVersion>2.1.7$(VersionSuffix)</NugetPackVersion>
+    <NugetPackVersion>2.1.8$(VersionSuffix)</NugetPackVersion>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
-    <Version>2.1.7$(VersionSuffix)</Version>
+    <Version>2.1.8$(VersionSuffix)</Version>
     <Description>OceanHo's dotnet common library</Description>
     <PackageProjectUrl>https://github.com/oceanho/OhDotNetLib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/oceanho/OhDotNetLib.git</RepositoryUrl>

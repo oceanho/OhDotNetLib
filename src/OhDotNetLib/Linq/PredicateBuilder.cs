@@ -7,7 +7,8 @@ namespace OhDotNetLib.Linq
 {
     public static class PredicateBuilder
     {
-        private const string paraExprPrefix = "OhLinq_";
+        private const string paraExprPrefix = "OhLq_";
+
         public static Func<T1, bool> True<T1>() => (T1 t1) => true;
         public static Func<T1, T2, bool> True<T1, T2>() => (T1 t1, T2 t2) => true;
 
@@ -27,7 +28,7 @@ namespace OhDotNetLib.Linq
 
         public static ParameterExpression Paramters<T1>()
         {
-            return Paramters<T1>($"{paraExprPrefix}t1");
+            return Paramters<T1>($"{paraExprPrefix}P1");
         }
 
         public static ParameterExpression Paramters<T1>(string paramName)
@@ -39,7 +40,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.Add(Paramters<T1>());
-            paramterExprs.Add(Paramters<T2>($"{paraExprPrefix}t2"));
+            paramterExprs.Add(Paramters<T2>($"{paraExprPrefix}P2"));
             return paramterExprs;
         }
 
@@ -47,7 +48,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2>());
-            paramterExprs.Add(Paramters<T3>($"{paraExprPrefix}t3"));
+            paramterExprs.Add(Paramters<T3>($"{paraExprPrefix}P3"));
             return paramterExprs;
         }
 
@@ -55,7 +56,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2, T3>());
-            paramterExprs.Add(Paramters<T4>($"{paraExprPrefix}t4"));
+            paramterExprs.Add(Paramters<T4>($"{paraExprPrefix}P4"));
             return paramterExprs;
         }
 
@@ -63,7 +64,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2, T3, T4>());
-            paramterExprs.Add(Paramters<T5>($"{paraExprPrefix}t5"));
+            paramterExprs.Add(Paramters<T5>($"{paraExprPrefix}P5"));
             return paramterExprs;
         }
 
@@ -71,7 +72,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2, T3, T4, T5>());
-            paramterExprs.Add(Paramters<T6>($"{paraExprPrefix}t6"));
+            paramterExprs.Add(Paramters<T6>($"{paraExprPrefix}P6"));
             return paramterExprs;
         }
 
@@ -79,7 +80,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2, T3, T4, T5, T6>());
-            paramterExprs.Add(Paramters<T7>($"{paraExprPrefix}t7"));
+            paramterExprs.Add(Paramters<T7>($"{paraExprPrefix}P7"));
             return paramterExprs;
         }
 
@@ -87,7 +88,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2, T3, T4, T5, T6, T7>());
-            paramterExprs.Add(Paramters<T8>($"{paraExprPrefix}t8"));
+            paramterExprs.Add(Paramters<T8>($"{paraExprPrefix}P8"));
             return paramterExprs;
         }
 
@@ -95,7 +96,7 @@ namespace OhDotNetLib.Linq
         {
             var paramterExprs = new List<ParameterExpression>();
             paramterExprs.AddRange(Paramters<T1, T2, T3, T4, T5, T6, T7, T8>());
-            paramterExprs.Add(Paramters<T9>($"{paraExprPrefix}t9"));
+            paramterExprs.Add(Paramters<T9>($"{paraExprPrefix}P9"));
             return paramterExprs;
         }
     }
