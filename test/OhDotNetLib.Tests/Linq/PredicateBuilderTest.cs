@@ -26,7 +26,7 @@ namespace OhDotNetLib.Tests.Linq
             var paramList = PredicateBuilder.Paramters<Byte, Int32, Int64, Single, Decimal, DateTime, String, MyPredicateBuilderTestClass, Object>();
             for (int i = 0; i < paramList.Count; i++)
             {
-                paramList[i].Name.ShouldBe("OhLinq_t" + (i + 1));
+                paramList[i].Name.ShouldBe("OhLq_P" + (i + 1));
             }
         }
         #endregion
