@@ -17,12 +17,14 @@ Function CreateBetaPack {
 	ClearNugetPack
 	BuildProj -Configuration "Debug"
 	Invoke-Expression "dotnet pack --output $NugetPack -c Debug --include-symbols --version-suffix '-Beta' $CsProject"
+	CleanNonSymbolsPack
 }
 
 Function CreateAlphaPack {
 	ClearNugetPack
 	BuildProj -Configuration "Debug"
 	Invoke-Expression "dotnet pack --output $NugetPack --include-symbols --version-suffix '-Alpha' $CsProject"
+	CleanNonSymbolsPack
 }
 
 Function CreateReleasePack {
@@ -51,6 +53,15 @@ Function PublishNugetPack {
 	}
 }
 
+Function CleanNonSymbolsPack {
+	If (Test-Path $NugetPack){
+		Get-ChildItem "$NugetPack/*.nupkg" | ForEach-Object -Process {
+			If(!($_.Name.EndsWith(".symbols.nupkg"))){
+				Remove-Item $_.FullName > $null
+			}
+		}
+	}
+}
 
 Function SetNugetApiKey {
 	$api_key = Read-Host "Input Your nuget Api Key(Empty Exited)"

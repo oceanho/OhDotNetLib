@@ -18,7 +18,7 @@ OceanHo's nuget tools for dotnet writed by PowerShell
 ====================================================="
 While ($true) {
 	Write-Host $cmdList
-	$cmd = Read-Host "Input Command Index£¨1-7£©or PowerShell Command"
+	$cmd = Read-Host "Input Command Index£¨1-9£©or PowerShell Command"
 	If ($cmd -eq "1"){
 		BuildProj
 		Continue
