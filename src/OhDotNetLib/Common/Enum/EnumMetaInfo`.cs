@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace OhDotNetLib
+namespace OhDotNetLib.Common.Enum
 {
     /// <summary>
     /// 表示枚举元数据信息载体类

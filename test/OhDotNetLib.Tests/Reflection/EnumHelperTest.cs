@@ -5,7 +5,7 @@ using Shouldly;
 
 namespace OhDotNetLib.Tests.Reflection
 {
-    using OhDotNetLib.Reflection;
+    using OhDotNetLib.Common.Enum;
     using System.ComponentModel;
     using System.Linq;
 

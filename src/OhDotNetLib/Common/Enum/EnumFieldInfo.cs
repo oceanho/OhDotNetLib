@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace OhDotNetLib
+namespace OhDotNetLib.Common.Enum
 {
     /// <summary>
     /// 定义一个用于表示枚举字段元数据信息的实体类
