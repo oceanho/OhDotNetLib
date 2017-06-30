@@ -18,7 +18,12 @@ namespace OhDotNetLib.Utils
         {
             if (sources == null)
                 return true;
-            return sources.FirstOrDefault(p => IsNullOrEmpty(p)) != null;
+            foreach (var source in sources)
+            {
+                if (IsNullOrEmpty(source))
+                    return true;
+            }
+            return false;
         }
     }
 }
