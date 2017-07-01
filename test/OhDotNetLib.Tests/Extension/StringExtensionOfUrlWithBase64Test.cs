@@ -9,7 +9,7 @@ namespace OhDotNetLib.Tests.Extension
 {
     using OhDotNetLib.Extension;
 
-    public class StringExtensionOfUrlWithBase64
+    public class StringExtensionOfUrlWithBase64Test
     {
         [Theory]
         [InlineData("ABC")]
