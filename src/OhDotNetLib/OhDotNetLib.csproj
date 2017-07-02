@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <NugetPackVersion>2.1.11$(VersionSuffix)</NugetPackVersion>
+    <NugetPackVersion>2.1.12$(VersionSuffix)</NugetPackVersion>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
