@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <NugetPackVersion>2.1.10$(VersionSuffix)</NugetPackVersion>
+    <NugetPackVersion>2.1.11$(VersionSuffix)</NugetPackVersion>
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
@@ -25,7 +25,8 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Condition="'$(TargetFramework)'=='net46'" Version="5.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Condition="'$(TargetFramework)'=='netstandard1.6'" Version="10.0.3" />
     <PackageReference Include="System.Collections.Immutable" Version="1.3.1" />
     <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
     <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
