@@ -9,19 +9,16 @@ namespace OhDotNetLib.Reflection.Caching
 {
     internal static class PropertyInfoCache
     {
-        private static readonly ConcurrentDictionary<Type, ImmutableList<PropertyInfo>> CacheDb;
+        private static readonly ConcurrentDictionary<Type, ImmutableList<PropertyInfo>> cacheDb;
+
         static PropertyInfoCache()
         {
-            CacheDb = new ConcurrentDictionary<Type, ImmutableList<PropertyInfo>>();
+            cacheDb = new ConcurrentDictionary<Type, ImmutableList<PropertyInfo>>();
         }
 
         public static IReadOnlyList<PropertyInfo> Get(Type type, Func<Type, PropertyInfo[]> getTypePropertyInfoHandler)
         {
-            if (!(CacheDb.ContainsKey(type)))
-            {
-                CacheDb[type] = getTypePropertyInfoHandler(type).ToImmutableList();
-            }
-            return CacheDb[type];
-        }
+            return cacheDb.GetOrAdd(type, getTypePropertyInfoHandler(type).ToImmutableList());
+        }        
     }
 }
