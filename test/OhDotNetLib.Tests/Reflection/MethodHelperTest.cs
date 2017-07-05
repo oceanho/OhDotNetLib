@@ -19,6 +19,11 @@ namespace OhDotNetLib.Tests.Reflection
             strIsNullOrEmptyMethod.ShouldNotBeNull();
             strIsNullOrEmptyMethod.Invoke(null, new object[] { string.Empty }).ShouldBe(true);
             strIsNullOrEmptyMethod.Invoke(null, new object[] { "this is test text" }).ShouldBe(false);
+
+
+            var strToUpperMethod = MethodHelper.GetMethod(strType, m => m.Name == "ToUpper");
+            strToUpperMethod.ShouldNotBeNull();
+            strToUpperMethod.Invoke("this is test text", null).ShouldBe("THIS IS TEST TEXT");
         }
         #endregion
     }
